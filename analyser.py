@@ -1,14 +1,29 @@
 from datetime import datetime, timedelta
 from ip_utils import classify_ip, get_severity
+import argparse
+import os
+
+parser = argparse.ArgumentParser(prog="Python Brute-Force Log Analyser",
+                                 description="Analyse authentication log files to detect suspicious login behaviour such as repeated failed attempts within a time window.",
+                                 epilog="Made by Duy Duc Duong @ Monash University")
+parser.add_argument('filename', type=str, help="Logfile name where the analyser will scan and analyse") 
+parser.add_argument('-t','--threshold', type=int, default=3, help="Number of failed attempts before flagged")
+parser.add_argument('-w','--timewindow', type=int, default=5, help="How far apart the failed login attempts (in minutes) are within which failed attempts count toward the threshold")
+
+args = parser.parse_args()
 
 users = {}
 users_timestamp = {}
-alert_threshold = 3
-time_window = timedelta(minutes=5)
+alert_threshold = args.threshold
+time_window = timedelta(minutes=args.timewindow)
 
 alert_export = open('alert.log','a')
 
-with open("sample.log", "r") as file:
+if not os.path.exists(args.filename):
+    print("Filename does not exist")
+    exit(1)
+
+with open(args.filename, "r") as file:
     for line in file:
         parts = line.split()
         user = parts[2].split("=")[1]
@@ -64,7 +79,7 @@ with open("sample.log", "r") as file:
                 alert = (f'{users_timestamp[user][ip][-1]} | ALERT | '
                          f'USER: {user} | IP address: {ip} | '
                          f'Attempts: {len(users_timestamp[user][ip])} | '
-                         f'Window: 5 minutes | '
+                         f'Window: {time_window} minutes | '
                          f'IP Type: {ip_type} | '
                          f'Severity: {severity}\n')
 
