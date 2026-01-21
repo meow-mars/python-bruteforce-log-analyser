@@ -1,14 +1,19 @@
 # Security Log Analyser (Python)
 
-Python Brute-Force Log Analyser is a command-line tool that analyses authentication log files to detect potential brute-force login attempts. It identifies suspicious behaviour based on a configurable time window and failed login threshold. Using CLI flags, users can customise detection parameters to suit different environments. This tool helps security analysts identify brute-force attacks early before accounts or systems are compromised.
+The **Python Brute-Force Log Analyser** is a command-line tool that analyses authentication log files to detect potential brute-force login attempts. It identifies suspicious behaviour based on a configurable failed-login threshold and time window.
 
+Using CLI flags, users can customise detection parameters to suit different environments. This tool helps security analysts identify brute-force attacks early, before accounts or systems are compromised.
+
+---
 
 ## Features
-- Parses authentication logs
-- Tracks failed login attempts per user and IP
-- Detects brute-force attempts (3+ failures within 5 minutes)
-- Generates real-time alerts
+- Parses authentication log files
+- Tracks failed login attempts per user and IP address
+- Detects brute-force attempts (default: 3+ failures within 5 minutes)
+- Generates real-time console alerts
 - Exports alerts to a persistent log file
+
+---
 
 ## Example Alert
 2026-01-12 22:47:20 | ALERT | USER: john | IP address: 10.0.0.5 | Attempts: 3 | Window: 5 minutes | IP Type: PRIVATE | Severity: HIGH
