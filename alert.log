@@ -1,6 +1,0 @@
-2026-01-12 09:15:45 | ALERT | USER: admin | IP address: 192.168.1.10 | Attempts: 2 | Window: 0:02:00 minutes | IP Type: PRIVATE | Severity: HIGH
-2026-01-12 22:47:15 | ALERT | USER: john | IP address: 10.0.0.5 | Attempts: 2 | Window: 0:02:00 minutes | IP Type: PRIVATE | Severity: HIGH
-2026-01-12 22:57:22 | ALERT | USER: john | IP address: 12.0.0.6 | Attempts: 2 | Window: 0:02:00 minutes | IP Type: PUBLIC | Severity: MEDIUM
-2026-01-12 09:15:45 | ALERT | USER: admin | IP address: 192.168.1.10 | Attempts: 2 | Window: 0:02:00 minutes | IP Type: PRIVATE | Severity: HIGH
-2026-01-12 22:47:15 | ALERT | USER: john | IP address: 10.0.0.5 | Attempts: 2 | Window: 0:02:00 minutes | IP Type: PRIVATE | Severity: HIGH
-2026-01-12 22:57:22 | ALERT | USER: john | IP address: 12.0.0.6 | Attempts: 2 | Window: 0:02:00 minutes | IP Type: PUBLIC | Severity: MEDIUM
